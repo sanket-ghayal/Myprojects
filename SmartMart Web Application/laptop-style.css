@@ -1,0 +1,167 @@
+body {
+    background-color: aliceblue;
+}
+
+.card-title {
+    font-size: 2vw;
+}
+
+.card-text {
+    font-size: 1vw;
+}
+
+.card-body {
+    text-align: center;
+
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+ .image-1{
+    display: flex;
+    justify-content: space-evenly;
+ }
+ .image-1 img{
+ width: 49vw;
+ height: 20vw;
+ }
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    width: 97vw;
+    height: 35vw;
+    left: 1vw;
+    align-items: center;
+    top: -4vw;
+}
+
+.card1 {
+    width: 20vw;
+
+}
+
+.card2 {
+    width: 20vw;
+
+}
+
+.card3 {
+    width: 20vw;
+
+}
+
+
+
+.cards1 {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    width: 97vw;
+    height: 35vw;
+    left: 1vw;
+    top: -3vw;
+    align-items: center;
+}
+
+.card5 {
+    width: 20vw;
+
+}
+
+.card6 {
+    width: 20vw;
+
+}
+
+.card7 {
+    width: 20vw;
+
+}
+
+.heading h1 {
+    position: relative;
+    top: -3vw;
+    display: flex;
+    font-size: 3vw;
+    background-color: rgb(255, 255, 255);
+    width: 98vw;
+    left: 0.4vw;
+    height: 4vw;
+    align-items: anchor-center;
+}
+
+@media (max-width: 768px) {
+    .heading h1 {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-size: 5vw;
+    }
+
+    .btn {
+        height: 0vh;
+
+    }
+
+    .bi {
+        font-size: 1vw;
+    }
+}
+
+.hp {
+    background-color: white;
+    position: relative;
+    top: 5vw;
+}
+
+.Asus {
+    background-color: white;
+    position: relative;
+    top: 12vw;
+}
+
+.Lenovo {
+    background-color: white;
+    position: relative;
+    top: 19vw;
+}
+
+.Infinix {
+    background-color: white;
+    position: relative;
+    top: 26vw;
+}
+
+.footer {
+    background-color: #232F3E;
+    height: auto;
+    padding: 3vw 5vw;
+    position: relative;
+    top: 24vw;
+}
+
+.footer-data {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: white;
+    font-size: clamp(0.8rem, 1.2vw, 1.1rem);
+    width: 100%;
+    gap: 2vw;
+}
+
+.footer-data ul {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-data ul li {
+    list-style: none;
+    margin-bottom: 0.5rem;
+}

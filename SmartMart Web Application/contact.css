@@ -1,0 +1,19 @@
+.contact{
+    display: inline-block;
+    height: 41vw;
+    width: 85vw;
+    border: solid black;
+    border-radius: 10px;
+    position: relative;
+    left: 7vw;
+    top: 3vw;
+}
+.contain{
+    display: inline-block;
+    position: relative;
+    left: 1vw;
+}
+a{
+ text-decoration: none;
+
+}

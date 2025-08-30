@@ -1,0 +1,162 @@
+body {
+    background-color: aliceblue;
+}
+.image img{
+  width: 100%;
+}
+.Tv-1 {
+    display: flex;
+    width: 89vw;
+    position: relative;
+    left: 3vw;
+}
+
+.Tv-2 {
+    display: flex;
+    width: 89vw;
+    position: relative;
+    left: 3vw;
+    top: 5vw;
+}
+
+.Tv-3 {
+    display: flex;
+    width: 89vw;
+    position: relative;
+    left: 3vw;
+}
+
+.Tv-4 {
+    display: flex;
+    width: 89vw;
+    position: relative;
+    left: 3vw;
+    top: 4vw;
+}
+/* .Hair {
+  padding: 20px;
+  background-color: #f9f9f9;
+  height: auto;
+} */
+
+@media (max-width: 768px) {
+    .heading1 h1 {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-size: 5vw;
+    }
+  }
+
+@media (max-width: 767px) {
+  .Oneplus {
+    height: 486vw;
+  }
+  .Samsung {
+    height: 486vw;
+  }
+  .LG {
+    height: 486vw;
+  }
+  .Realme {
+    height: 486vw;
+  }
+}
+
+.Oneplus {
+    background-color: white;
+    height: 73vw;
+    width: 97vw;
+    position: relative;
+    left: 1vw;
+    top: 8vw;
+    padding: 20px;
+  /* background-color: #f9f9f9; */
+  height: auto;
+}
+
+.Samsung {
+    background-color: white;
+    height: 73vw;
+    width: 97vw;
+    position: relative;
+    left: 1vw;
+    top: 14vw;
+    height: auto;
+}
+
+.LG {
+    background-color: white;
+    height: 73vw;
+    width: 97vw;
+    position: relative;
+    left: 1vw;
+    top: 20vw;
+    height: auto;
+
+}
+
+.Realme {
+    background-color: white;
+    height: 73vw;
+    width: 97vw;
+    position: relative;
+    left: 1vw;
+    top: 26vw;
+    height: auto;
+
+}
+.plate{
+        background-color: white;
+    height: 7vw;
+}
+
+.card-title {
+    text-align: center;
+    font-size: 2vw;
+}
+
+.card-text {
+    text-align: center;
+    font-size: 1vw;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.card {
+    background-color: aliceblue;
+}
+
+
+
+
+.footer {
+    background-color: #232F3E;
+    height: auto; 
+    padding: 3vw 5vw;
+    position: relative;
+    top: 30vw;
+}
+
+.footer-data {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    color: white;
+    font-size: clamp(0.8rem, 1.2vw, 1.1rem); 
+    width: 100%;
+    gap: 2vw;
+}
+
+.footer-data ul {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-data ul li {
+    list-style: none;
+    margin-bottom: 0.5rem;
+}

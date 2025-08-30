@@ -1,0 +1,98 @@
+.phoes1 {
+    display: flex;
+    justify-content: space-around;
+}
+
+.phoes2 {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+body {
+    background-color: aliceblue;
+}
+
+.card-title {
+    font-size: 2vw;
+}
+
+.card-text {
+    font-size: 1vw;
+}
+
+.card-body {
+    text-align: center;
+
+}
+
+.heading1 h1 {
+    font-size: 3vw;
+    position: relative;
+    left: 3vw;
+    top: -1vw;
+    width: 94vw;
+}
+
+@media (max-width: 768px) {
+    .heading1 h1 {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-size: 5vw;
+    }
+    .btn{
+        height: 7vh;
+
+    }
+    .bi{
+   display: flex;
+    }
+}
+
+.iphones,
+.realmes,
+.oneplus,
+.redmes {
+    background-color: white;
+    position: relative;
+    top: 4vw;
+}
+
+.ad1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5vw;
+}
+
+.ad1 img {
+    width: 24vw;
+}
+
+.footer {
+    background-color: #232F3E;
+    height: auto; 
+    padding: 3vw 5vw;
+    position: relative;
+    top: 10vw;
+}
+
+.footer-data {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    color: white;
+    font-size: clamp(0.8rem, 1.2vw, 1.1rem); 
+    width: 100%;
+    gap: 2vw;
+}
+
+.footer-data ul {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-data ul li {
+    list-style: none;
+    margin-bottom: 0.5rem;
+}
