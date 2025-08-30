@@ -8,22 +8,23 @@ The home page (`home.html`) serves as the main entry point of the application.
 ## 📂 Project Structure
 
 SmartMart/
-'├── home.html             # Main landing page'
-'├── mobiles.html          # Mobiles section'
-'├── laptops.html          # Laptops section'
-'├── Tvs.html              # Televisions section'
-'├── contact.html          # Contact page'
-'├── support.html          # Support/Help page'
-'├── home.css              # Styling for home page'
-'├── mobile-style.css      # Styling for mobile page'
-'├── laptop-style.css      # Styling for laptop page'
-'├── tvs.css               # Styling for tv page'
-'├── contact.css           # Styling for contact page'
-'├── support.css           # Styling for support page'
-'└── Images/               # Contains all images used in the project'
+├── home.html             # Main landing page
+├── mobiles.html          # Mobiles section
+├── laptops.html          # Laptops section
+├── Tvs.html              # Televisions section
+├── contact.html          # Contact page
+├── support.html          # Support/Help page
+├── home.css              # Styling for home page
+├── mobile-style.css      # Styling for mobile page
+├── laptop-style.css      # Styling for laptop page
+├── tvs.css               # Styling for tv page
+├── contact.css           # Styling for contact page
+├── support.css           # Styling for support page
+└── Images/               # Contains all images used in the project
     ├── logo.png
     ├── banner.jpg
     └── ... (other images)
+
 
     
 
