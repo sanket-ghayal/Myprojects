@@ -20,4 +20,4 @@ A web application that allows real-time messaging between users, inspired by Wha
 ## How to Use
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/your-username/myprojects.git
+   git clone https://github.com/sanket-ghayal/myprojects.git
