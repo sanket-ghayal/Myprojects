@@ -1,4 +1,4 @@
-Simon Says Game
+Simon Says Game :-  
 A simple Simon Says memory game built with JavaScript, HTML, and CSS.
 The goal is to remember and repeat the sequence of colors.
 
@@ -12,12 +12,12 @@ How to Play
 
 
 Tech Stack
-HTML – structure
-CSS – styling and animations
-JavaScript – game logic
+1. HTML – structure
+2. CSS – styling and animations
+3. JavaScript – game logic
 
 
-Project Structure
+Project Structure :-  
 simon-says/
 │── index.html       # Main game page
 │── style.css        # Game styles
@@ -26,11 +26,11 @@ simon-says/
 
 
 Installation / Usage
-Clone the repository:
+1. Clone the repository :-  
                          git clone https://github.com/sanket-ghayal/simon-says-game.git
                          
 
-Features
-Interactive UI with 4 colored buttons
-Increasing difficulty with each level
-Red blink effect when wrong color is tapped
+Features :
+1. Interactive UI with 4 colored buttons
+2. Increasing difficulty with each level
+3. Red blink effect when wrong color is tapped
