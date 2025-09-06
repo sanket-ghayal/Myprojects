@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chats Page</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+</head>
+
+<body style="margin: 20px;">
+    <h1>All Chats</h1>
+    <form method="GET" action="/chats/new">
+        <div class="newbtn"><button class="btn btn-primary">New Chat</button></div>
+    </form>
+    <div class="All">
+        <% for(let chat of chats ){ %>
+            <div class="chats">
+                <p>From : <i>
+                        <%= chat.from %>
+                    </i></p>
+                <div class="msg">
+                    <p>
+                        <%= chat.msg %>
+                    </p>
+                     <form method="GET" action="/chats/<%= chat._id %>/edit">
+                        <div class="editbtn"><button class="btn btn-primary">Edit</button></div>
+                    </form>
+                </div>
+               
+                <p>To : <i>
+                        <%= chat.to %>
+                    </i></p>
+                <hr>
+                <p>
+                    <%= chat.created_at.toString().split(" ")[4] %></p>
+        <p> <%= chat.created_at.toString().split(" ").slice(0 , 4).join(" ") %></p>
+        <form  method="POST" action="/chats/<%= chat._id %>/delete?_method=DELETE">
+            <div class="deletebtn"><button class="btn btn-primary">Delete</button></div>
+        </form>
+    </div><br><br>
+<% } %>
+</div>
+</body>
+</html>
