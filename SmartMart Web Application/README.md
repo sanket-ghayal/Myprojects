@@ -5,8 +5,10 @@ SmartMart Web Application is a multi-page website built using **HTML** and **CSS
 It showcases different product categories like **Mobiles, Laptops, and TVs**, along with **Contact** and **Support** pages.  
 The home page (`home.html`) serves as the main entry point of the application.
 
-## 📂 Project Structure
+-----
 
+
+## 📂 Project Structure
 SmartMart/
 ├── home.html             # Main landing page
 ├── mobiles.html          # Mobiles section
@@ -26,33 +28,56 @@ SmartMart/
     └── ... (other images)
 
 
-    
+---------
+
 
 **Note:** Do not delete or rename the `Images/` folder, as all images are loaded from there.
 
+--------
+
 
 ##🚀 How to Run 
-
-1. Clone the repository
+1. Clone the repository:
 bash
-git clone https://github.com/sanket-ghayal/MyProjects.git
+-git clone https://github.com/sanket-ghayal/MyProjects.git
+
+---
 
 2. Navigate to the SmartMart folder:
 cd MyProjects/SmartMart
 
+-----
+
 3. Open home.html in a web browser.
+
+-----
 
 All other HTML pages (mobile.html, laptop.html, etc.) are linked through the navigation menu.
 
-Features :
+------
+
+## Features :
 🏠 Home Page as the main entry point
 📱 Separate pages for Mobiles, Laptops, and TVs
 📞 Contact and Support pages for user assistance
 🎨 Each page has its own CSS styling
 🖼️ All images are stored in a dedicated images/ folder for easy management
 
-Usage Notes :
+-------
+
+## Usage Notes :
 Make sure the images/ folder remains in the same directory as your HTML files
 Open home.html first to navigate to other pages through the menu
 You can edit the HTML or CSS files to customize content or styling
 ⚠️ **Bootstrap and other CDN libraries require an internet connection**. If offline, styles or components may not load properly.
+
+-------
+
+## Screenshot:
+<img width="1366" height="768" alt="Screenshot (61)" src="https://github.com/user-attachments/assets/75f8bd8c-2967-4605-ac31-6eb033f7a426" />
+-----
+<img width="1366" height="768" alt="Screenshot (62)" src="https://github.com/user-attachments/assets/bbdc87b9-a446-447a-8e8a-dc7641604245" />
+----
+<img width="1366" height="768" alt="Screenshot (63)" src="https://github.com/user-attachments/assets/555794d3-ffb1-47b8-8384-a09926235875" />
+
+
