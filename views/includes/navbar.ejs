@@ -1,52 +1,89 @@
 <style>
-    .search-btn{
-         background-color: #fe424d;
-         color: #fff;
-         border-radius: 25px;
-         padding: 0 1rem 0 1rem;
-    }
-    .search-btn:hover{
-         background-color: #fe424d;
-         color: #fff;
-    }
-    .search-btn i{
-        display: inline;
-        margin-right: 0.5rem;
-    }
-    .search-inp{
-        border-radius: 25px;
-        padding: 0.5rem 3rem 0.5rem 3rem;
-        font-size: 1rem;
-    }
-    
+  .search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+  }
+
+  .search-btn:hover {
+    background-color: #fe424d;
+    color: #fff;
+  }
+
+  .search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    font-size: 1rem;
+  }
+
+  .navbar {
+    background-color: #E0F2FE;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .navbar-collapse {
+    background-color: #E0F2FE;
+  }
+  .nav-link {
+  border: 1px solid #E5E7EB;
+  background-color: white;
+  color: #111;
+  border-radius: 8px;
+  padding: 8px 18px;
+  transition: all 0.3s ease;
+}
+.nav-link:hover {
+  background-color: #d6f0ff;
+}
 </style>
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link" href="/listings">Explore</a>
-            </div>
-            <div class="navbar-nav ms-auto">
-              <form class="d-flex" role="search">
-                <input type="search" class="form-control me-2 search-inp" placeholder="Search destinations">
-                <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-              </form>
-            </div>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="/listings/new">Airbnb your home</a>
-                <% if(!currUser){ %>
-                <a class="nav-link "href="/signup"><b>Sign up</b></a>
-                <a class="nav-link" href="/login"><b>Log in</b></a>
-                <%}%> <% if(currUser){ %>
-                <a class="nav-link" href="/logout"><b>Log out</b></a>
-                <%}%>
-            </div>
-        </div>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
+
+      <div class="navbar-nav ms-auto">
+        <form action="/listings/search" method="GET" class="d-flex" role="search">
+          <input type="search" class="form-control me-2 search-inp" name="q" placeholder="Search destinations"
+            value="<%= typeof query !== 'undefined' ? query : '' %>">
+          <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+        </form>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new"><b><button class="btn">Airbnb your home</button></b></a>
+        <% if(!currUser){ %>
+          <a class="nav-link " href="/signup"><b><button class="btn">Sign up</button></b></a>
+          <a class="nav-link" href="/login"><b><button class="btn">Log in</button></b></a>
+          <%}%>
+            <% if(currUser){ %>
+              <a class="nav-link" href="/logout"><b><button class="btn">Log out</button></b></a>
+              <%}%>
+      </div>
     </div>
+  </div>
 </nav>
+
+
+<script>
+  const searchInput = document.querySelector('.search-inp');
+  const searchForm = searchInput.closest('form');
+
+  searchInput.addEventListener('input', () => {
+    if (searchInput.value.trim() === '') {
+      searchForm.submit(); // automatically submit when input is empty
+    }
+  });
+</script>
