@@ -71,3 +71,24 @@ module.exports.deleteListing = async (req, res) => {
     console.log(deletedlisting);
     res.redirect("/listings");
 };
+
+module.exports.searchListings = async (req, res) => {
+    const query = req.query.q?.trim();
+
+    let allListings;
+
+    if (!query) {
+        // Empty search → show all listings
+        allListings = await Listing.find({});
+    } else {
+        // Use $regex with case-insensitive option for safe multi-word search
+        allListings = await Listing.find({
+            $or: [
+                { title: { $regex: query, $options: "i" } },
+                { location: { $regex: query, $options: "i" } },
+            ],
+        });
+    }
+
+    res.render("listings/index.ejs", { allListings, query });
+};
