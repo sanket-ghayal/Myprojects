@@ -1,107 +1,124 @@
 <% layout("/layouts/boilerplate") %>
   <style>
-    #filters {
+    .filters {
       display: flex;
-      flex-wrap: nowrap;
-      gap: 12px;
-      padding: 10px;
+      gap: 65px;
       overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      
+
+      position: sticky;
+      top: 70px;
+      z-index: 1000;
+      background-color: white;
+      padding: 25px 20px;
     }
 
     .filter {
       text-align: center;
-      margin-right: 2rem;
-      margin-top: 2rem;
-      opacity: 0.6;
+      text-decoration: none;
+      color: #717171;
+      padding-bottom: 8px;
     }
 
-    .filter p {
-      font-size: 0.8rem;
+    .filter i {
+      font-size: 22px;
+    }
+
+    .filter.active {
+      color: #000;
+      border-bottom: 2px solid black;
     }
 
     .filter:hover {
-      opacity: 1;
-      cursor: pointer;
-      background: #e0e0e0;
+      color: #000;
     }
 
-    .tax-info {
+    /* .tax-info {
       display: none;
     }
 
  .tax-toggle {
   flex-basis: 100%;        
   margin-top: 10px;        
-  padding: 5px 10px;       /* smaller vertical padding */
+  padding: 5px 10px;       
   border-top: 1px solid #ccc; 
   background: #f9f9f9;    
   border-radius: 8px;     
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-wrap: wrap;         /* allows wrapping on small screens */
-  height: fit-content;            /* optional, lets content decide height */
+  flex-wrap: wrap;         
+  height: fit-content;            
 }
 @media (max-width: 480px) {
   .tax-toggle {
     flex-direction: row;
     align-items: flex-start;
     gap: 5px;
-  }
+  }  */
   </style>
-  
-  <div id="filters">
-    <div class="filter">
-      <div><i class="fa-solid fa-fire"></i></div>
-      <p>Trending</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-bed"></i></div>
-      <p>Rooms</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-mountain-city"></i></div>
-      <p>Iconic Cities</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-mountain"></i></div>
-      <p>Mountains</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-fort-awesome"></i></div>
-      <p>Castles</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-person-swimming"></i></div>
-      <p>Amazing Pools</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-campground"></i></div>
-      <p>Camping</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-cow"></i></div>
-      <p>Farms</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-snowflake"></i></div>
-      <p>Arctic</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-igloo"></i></div>
-      <p>Domes</p>
-    </div>
-    
 
-    <div class="tax-toggle">
+  <div class="filters">
+
+    <a href="/listings" class="filter <%= !category ? 'active' : '' %>">
+      <i class="fa-solid fa-border-all"></i>
+      <span>All</span>
+    </a>
+
+    <a href="/listings?category=beach" class="filter <%= category === 'beach' ? 'active' : '' %>">
+      <i class="fa-solid fa-umbrella-beach"></i>
+      <span>Beach</span>
+    </a>
+
+    <a href="/listings?category=iconic" class="filter <%= category === 'iconic' ? 'active' : '' %>">
+      <i class="fa-solid fa-city"></i>
+      <span>Iconic Cities</span>
+    </a>
+
+    <a href="/listings?category=mountains" class="filter <%= category === 'mountains' ? 'active' : '' %>">
+      <i class="fa-solid fa-mountain"></i>
+      <span>Mountains</span>
+    </a>
+
+    <a href="/listings?category=castles" class="filter <%= category === 'castles' ? 'active' : '' %>">
+      <i class="fa-solid fa-chess-rook"></i>
+      <span>Castles</span>
+    </a>
+
+    <a href="/listings?category=pools" class="filter <%= category === 'pools' ? 'active' : '' %>">
+      <i class="fa-solid fa-water-ladder"></i>
+      <span>Pools</span>
+    </a>
+
+    <a href="/listings?category=camping" class="filter <%= category === 'camping' ? 'active' : '' %>">
+      <i class="fa-solid fa-campground"></i>
+      <span>Camping</span>
+    </a>
+
+    <a href="/listings?category=farms" class="filter <%= category === 'farms' ? 'active' : '' %>">
+      <i class="fa-solid fa-tractor"></i>
+      <span>Farms</span>
+    </a>
+
+    <a href="/listings?category=arctic" class="filter <%= category === 'arctic' ? 'active' : '' %>">
+      <i class="fa-regular fa-snowflake"></i>
+      <span>Arctic</span>
+    </a>
+
+    <a href="/listings?category=domes" class="filter <%= category === 'domes' ? 'active' : '' %>">
+      <i class="fa-solid fa-igloo"></i>
+      <span>Domes</span>
+    </a>
+
+  </div>
+
+
+  <!-- <div class="tax-toggle">
       <div class="form-check-reverse form-switch">
         <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-        <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
+        <label class="form-check-label"  for="switchCheckDefault">Display total after taxes</label>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
 
@@ -127,25 +144,31 @@
         <% } %>
           <% } else { %>
             <div class="text-center py-5">
-              <h4>No listings found<% if (query) { %> for "<%= query %>"<% } %>.</h4>
+              <h4>
+                No listings found
+                <% if (typeof query !=="undefined" && query) { %>
+                  for "<%= query %>"
+                    <% } %>.
+              </h4>
             </div>
             <% } %>
   </div>
 
 
 
-  <script>
-    let taxSwitch = document.getElementById("switchCheckDefault")
-    taxSwitch.addEventListener("click", () => {
-      let taxInfo = document.getElementsByClassName("tax-info");
-      for (info of taxInfo) {
-        if (info.style.display != "inline") {
-          info.style.display = "inline";
-        } else {
-          info.style.display = "none";
-        }
+
+  <!-- <script>
+      let taxSwitch = document.getElementById("switchCheckDefault")
+      taxSwitch.addEventListener("click", () => {
+        let taxInfo = document.getElementsByClassName("tax-info");
+        for (info of taxInfo) {
+          if (info.style.display != "inline") {
+            info.style.display = "inline";
+          } else {
+            info.style.display = "none";
+          }
 
 
-      };
-    })
-  </script>
+        };
+      })
+    </script> -->
