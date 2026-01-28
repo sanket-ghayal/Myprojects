@@ -1,38 +1,60 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const review = require("./review");
-
+const Review = require("./review");
 
 const listingSchema = new Schema({
-    title: {
-        type: String,
-        require: true
-    },
-    description: String,
-    image: {
-       url : String,
-       filename: String,
-    },
-    price: Number,
-    location: String,
-    country: String,
-    reviews: [
-        {
-        type: Schema.Types.ObjectId,
-        ref: "Review",
-        }
+  title: {
+    type: String,
+    required: true,
+  },
+
+  description: String,
+
+  image: {
+    url: String,
+    filename: String,
+  },
+
+  price: Number,
+  location: String,
+  country: String,
+
+  // ⭐ CATEGORY (FOR FILTER LOGOS)
+  category: {
+    type: String,
+    enum: [
+      "beach",
+      "iconic",
+      "mountains",
+      "castles",
+      "pools",
+      "camping",
+      "farms",
+      "arctic",
+      "domes",
     ],
-    owner: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
+    required: true,
+  },
+
+  reviews: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Review",
     },
+  ],
+
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 
+// 🔥 Delete reviews when listing is deleted
 listingSchema.post("findOneAndDelete", async (listing) => {
-    if (listing) {
-        await review.deleteMany({_id: {$in: listing.reviews}});
-    }
+  if (listing) {
+    await Review.deleteMany({ _id: { $in: listing.reviews } });
+  }
 });
 
 const Listing = mongoose.model("Listing", listingSchema);
