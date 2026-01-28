@@ -32,8 +32,10 @@ const listingSchema = new Schema({
       "farms",
       "arctic",
       "domes",
+      "domestic"  
     ],
     required: true,
+    default: "beach", 
   },
 
   reviews: [
