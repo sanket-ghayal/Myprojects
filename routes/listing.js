@@ -2,29 +2,66 @@ const express = require("express");
 const router = express.Router();
 const wrapAsync = require("../utili/wrapAsync.js");
 const Listing = require("../models/listing.js");
-const {isLoggedIn, validateListing, isOwner} = require("../middleware.js");
+const { isLoggedIn, validateListing, isOwner } = require("../middleware.js");
 const multer = require("multer");
-const {storage} = require("../cloudConfig.js");
+const { storage } = require("../cloudConfig.js");
 const upload = multer({ storage });
 
 const listingController = require("../controllers/listings.js");
 
-router.route("/")
-.get(wrapAsync(listingController.index))
-.post(isLoggedIn, upload.single("listing[image]"), validateListing,  wrapAsync(listingController.createListing));
+// ===================================
+// ROUTE: LISTINGS INDEX (with category filter)
+// ===================================
+router.get("/", async (req, res) => {
+  const { category } = req.query;
 
-// New Route
+  let allListings;
+  if (category && category !== "all") {
+    allListings = await Listing.find({ category });
+  } else {
+    allListings = await Listing.find({});
+  }
+
+  res.render("listings/index", { allListings, category });
+});
+
+// ===================================
+// ROUTE: CREATE NEW LISTING
+// ===================================
+router.post(
+  "/",
+  isLoggedIn,
+  upload.single("image"),  // <-- MATCHS flattened form field
+  wrapAsync(listingController.createListing)
+);
+
+// ===================================
+// ROUTE: NEW FORM
+// ===================================
 router.get("/new", isLoggedIn, listingController.renderNewForm);
 
+// ===================================
+// ROUTE: SEARCH
+// ===================================
 router.get("/search", wrapAsync(listingController.searchListings));
 
+// ===================================
+// ROUTE: SHOW / UPDATE / DELETE
+// ===================================
+router
+  .route("/:id")
+  .get(wrapAsync(listingController.showListing))
+  .put(
+    isLoggedIn,
+    isOwner,
+    upload.single("image"), // <-- MATCHS flattened form field
+    wrapAsync(listingController.updateListing)
+  )
+  .delete(isLoggedIn, isOwner, wrapAsync(listingController.deleteListing));
 
-router.route("/:id")
-.get(wrapAsync(listingController.showListing))
-.put(isLoggedIn, isOwner, upload.single("listing[image]"), validateListing, wrapAsync(listingController.updateListing))
-.delete(isLoggedIn, isOwner, wrapAsync(listingController.deleteListing));
-
-// Edit Route 
+// ===================================
+// ROUTE: EDIT FORM
+// ===================================
 router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(listingController.renderEditForm));
 
 module.exports = router;
